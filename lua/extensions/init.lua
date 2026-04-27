@@ -179,6 +179,27 @@ local plugins = {
     'pogyomo/winresize.nvim',
   },
 
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
+
+  {
+  "pocco81/auto-save.nvim",
+    lazy = false,
+    config = function()
+    require("auto-save").setup({
+      enabled = true,
+      execution_message = {
+        message = function() return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S")) end,
+      },
+    })
+    end,
+  },
+
 
 }
 
